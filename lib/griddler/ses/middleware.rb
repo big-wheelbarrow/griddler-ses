@@ -18,7 +18,7 @@ module Griddler
 
       private
       def griddler_path
-        @griddler_path ||= Rails.application.routes.url_helpers.url_for(controller: 'griddler/emails', action: 'create', only_path: true)
+        @griddler_path ||= ::Griddler::Ses.config.griddler_path || Rails.application.routes.url_helpers.url_for(controller: 'griddler/emails', action: 'create', only_path: true)
       end
     end
   end
